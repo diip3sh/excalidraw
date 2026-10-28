@@ -26,6 +26,7 @@ import { actionToggleViewMode } from "../actions/actionToggleViewMode";
 import "./Actions.scss";
 
 import { useExcalidrawContainer } from "./App";
+import { InputDeviceSwitch } from "./InputDeviceSwitch";
 import Stack from "./Stack";
 import { Tooltip } from "./Tooltip";
 import { PropertiesPopover } from "./PropertiesPopover";
@@ -876,14 +877,18 @@ export const MobileShapeActions = ({
 
 export const ZoomActions = ({
   renderAction,
+  withInputDeviceSwitch = false,
 }: {
   renderAction: ActionManager["renderAction"];
+  /** not rendered in embeds that opt into zoom controls only */
+  withInputDeviceSwitch?: boolean;
 }) => (
   <Stack.Col gap={1} className={CLASSES.ZOOM_ACTIONS}>
     <Stack.Row align="center">
       {renderAction("zoomOut")}
       {renderAction("resetZoom")}
       {renderAction("zoomIn")}
+      {withInputDeviceSwitch && <InputDeviceSwitch />}
     </Stack.Row>
   </Stack.Col>
 );

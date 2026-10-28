@@ -65,9 +65,6 @@
 }
 
 .zoom-in-button {
-  border-top-right-radius: var(--border-radius-lg) !important;
-  border-bottom-right-radius: var(--border-radius-lg) !important;
-
   :root[dir="rtl"] & {
     transform: scaleX(-1);
   }
@@ -75,6 +72,22 @@
   .ToolIcon__icon {
     border-top-left-radius: 0 !important;
     border-bottom-left-radius: 0 !important;
+  }
+}
+
+// rightmost button of the zoom island; carries its right-side rounding.
+// specificity must beat `.excalidraw .dropdown-menu-button(:hover)`
+.zoom-actions .input-device-button {
+  border-radius: 0 !important;
+  border-top-right-radius: var(--border-radius-lg) !important;
+  border-bottom-right-radius: var(--border-radius-lg) !important;
+  background: transparent;
+  border: none;
+  border-left: 1px solid var(--color-surface-lowest);
+  color: var(--text-primary-color);
+
+  &:hover:not(:active) {
+    background: var(--button-hover-bg);
   }
 }
 
