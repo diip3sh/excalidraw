@@ -15,7 +15,7 @@ Please add the latest change on the top under the correct section.
 
 ### Input device switch in the zoom controls [#12474](https://github.com/excalidraw/excalidraw/issues/12474)
 
-- New toggle button in the zoom-controls island (bottom-left) for the `appState.inputDevice` preference, so switching between trackpad and mouse wheel mappings no longer requires opening the main menu. One click flips the mode; the icon and tooltip show the active one. Keyboard accessible like any toolbar button. Hidden in embeds that opt into zoom-only UI. Automatic device detection (`"auto"`) is still left for later.
+- New input-mode switch in the zoom-controls island (bottom-left) for the `appState.inputDevice` preference, so switching between trackpad and mouse wheel mappings no longer requires opening the main menu. Hovering or clicking it slides up a vertical flyout with both modes (the active one highlighted); the button's icon always shows the active mode. Keyboard accessible (focusable trigger, Tab into the options, Escape closes). Hidden in embeds that opt into zoom-only UI. Automatic device detection (`"auto"`) is still left for later.
 
 ### Export API: `exportScene` (2026-10-18) [#12347](https://github.com/excalidraw/excalidraw/pull/12347)
 

@@ -81,6 +81,55 @@
   border-top-right-radius: var(--border-radius-lg) !important;
   border-bottom-right-radius: var(--border-radius-lg) !important;
   border-left: 1px solid var(--color-surface-lowest);
+
+  // no focus ring after mouse clicks, same as the other island buttons;
+  // keyboard focus keeps the :focus-visible ring from ToolIcon
+  &:focus:not(:focus-visible) {
+    box-shadow: none;
+  }
+}
+
+// vertical mode picker that slides up above the switch on hover/click
+.input-device-switch {
+  position: relative;
+  display: flex;
+}
+
+.input-device-flyout {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  z-index: 1;
+  // bridges the visual gap so the pointer can travel from the trigger
+  // into the flyout without it closing
+  padding-bottom: 0.5rem;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, 0.5rem);
+  pointer-events: none;
+  transition: opacity 0.15s ease-in-out, transform 0.15s ease-in-out,
+    visibility 0s linear 0.15s;
+
+  &--open {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
+    pointer-events: auto;
+    transition-delay: 0s;
+  }
+
+  &__island {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  // the active mode is highlighted, like active shape-actions buttons
+  &__option--active .ToolIcon__icon {
+    background-color: var(--color-surface-primary-container);
+    border-radius: 50%;
+  }
 }
 
 .undo-redo-buttons {
